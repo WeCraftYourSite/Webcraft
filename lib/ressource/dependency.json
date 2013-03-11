@@ -1,0 +1,10 @@
+{
+	"require": 
+	{
+		"Router": "/lib/controller/Routing/Router.php",
+		"Response": "/lib/controller/Network/Response.php",
+		"Request": "/lib/controller/Network/Request.php",
+		"SecurityDatas": "/lib/controller/Security/Datas.php",
+		"AppController": "/lib/controller/AppController.php"
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"priority":
+	[
+		"/app/acme/config/routes.json"
+	],
+
+	"secondary":
+	[
+		"/lib/ressource/component/application.json"
+	]
+}

@@ -1,0 +1,7 @@
+{
+	"name": "Acme Module",
+	"version": "1.0",
+	"description": "Description du module",
+	"website": "http://acme.com",
+	"folder": "acme"
+}

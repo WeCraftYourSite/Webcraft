@@ -1,0 +1,8 @@
+{
+	"acme_Accueil":
+	{
+		"url": "/hello-([a-zA-Z]+)",
+		"controller": "Defaut:index",
+		"vars": "name"
+	}
+}

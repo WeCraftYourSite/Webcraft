@@ -1,0 +1,8 @@
+{
+	"acme_Welcome":
+	{
+		"url": "/welcome-([a-zA-Z]+)",
+		"controller": "Defaut:index",
+		"vars": "name"
+	}
+}
