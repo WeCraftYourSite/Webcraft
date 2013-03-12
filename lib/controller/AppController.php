@@ -13,6 +13,7 @@ class AppController {
 	protected $response;
 	protected $request;
 	protected $securityDatas;
+	protected $csrf;
 	protected $twig;
 
 	public function __construct() {
@@ -23,6 +24,7 @@ class AppController {
 		$this->response = new Response();
 		$this->request = new Request();
 		$this->securityDatas = new SecurityDatas();
+		$this->csrf = new Csrf();
 		$loader = new Twig_Loader_Filesystem( SystemConfig::get( 'root' ) );
 		$this->twig = new Twig_Environment($loader);
 

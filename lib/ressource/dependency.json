@@ -5,6 +5,7 @@
 		"Response": "/lib/controller/Network/Response.php",
 		"Request": "/lib/controller/Network/Request.php",
 		"SecurityDatas": "/lib/controller/Security/Datas.php",
+		"Csrf": "/lib/controller/Security/Csrf.php",
 		"AppController": "/lib/controller/AppController.php"
 	}
 }
