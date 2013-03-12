@@ -15,9 +15,13 @@ class Defaut extends AppController{
 			'username' => $this->request->fetch( 'get', 'name' )
 		));*/
 		//echo $this->securityDatas->encrypt('dede', false);
-		$this->csrf->setToken( 'test', 'Default:index', 7000 );
+		//$this->csrf->setToken( 'test', 'Default:index', 7 );
 
-		var_dump($_SESSION);
+		if ( $this->csrf->verifyToken( 'test', 'Default:index' ) ) {
+			echo "ok";
+		} else {
+			echo "Erreur";
+		}
 	}
 
 }

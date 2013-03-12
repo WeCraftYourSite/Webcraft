@@ -29,7 +29,25 @@ class Csrf {
 
 	public function getToken ( $name ) {
 
-		return $this->request->get( 'SESSION', $name.'.token' );
+		return $this->request->exists( 'session', $name.'.token' );
 
+	}
+
+	public function verifyToken ( $name, $action ) {
+
+		if ( !$this->getToken( $name ) ) {
+			return false;
+		}
+
+		$token = $this->request->fetch( 'session', $name.'.token' );
+		if ( $token['action'] != $action ) {
+			return false;
+		}
+
+		if ( $token['expire'] < time() ) {
+			return false;
+		}
+
+		return true;
 	}
 }

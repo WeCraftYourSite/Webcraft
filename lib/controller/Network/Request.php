@@ -33,6 +33,20 @@ class Request {
 		}
 	}
 
+	public function exists ( $method, $key ) {
+		$method = strtoupper( $method );
+
+		if ( $method == "GET" ) {
+			return isset( $_GET[$key] ) ? true : false;
+		} else if ( $method == "POST" ) {
+			return isset( $_POST[$key] ) ? true : false;
+		} else if ( $method == "COOKIE" ) {
+			return isset( $_COOKIE[$key] ) ? true : false;
+		} else if ( $method == "SESSION" ) {
+			return isset( $_SESSION[$key] ) ? true : false;
+		}
+	}
+
 	public function method ( ) {
 		return $_SERVER['REQUEST_METHOD'];
 	}
