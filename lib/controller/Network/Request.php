@@ -2,14 +2,29 @@
 /**
  * Request.php
  *
- * This file is part of Webcraft
- * All rights reserved
+ * This file is part of WebCraft
+ * 
+ * Licensed under The MIT License
+ * For more information read the file LICENSE.txt
  *
- * @author Romain Quilliot <romain.addweb@gmail.com>
+ * @author 		Romain Quilliot <romain.addweb@gmail.com>
+ * @copyright	Copyright (c) WeCraftYourSite (http://wecraftyoursite.com)
+ * @package		WebCraft
+ * @version 	v 1.1
+ * @license 	MIT License
  **/
 
+/**
+ * Request is an object to get datas sent by the client
+ * @author 		Romain Quilliot <romain.addweb@gmail.com>
+ **/
 class Request {
 
+	/**
+	 * Get system information
+	 * @param 	string 	( data will be got )
+	 * @return 	array 	
+	 **/
 	public function getSystem ( $key = null ) {
 		if ( $key != null ) {
 			return $_SERVER['WebCraftRequest'][$key];
@@ -19,6 +34,12 @@ class Request {
 		}
 	}
 
+	/**
+	 * Fetch data from superglobals
+	 * @param 	string 	( superglobal )
+	 * @param 	string 	( key wich contain data wanted )
+	 * @return  string
+	 **/
 	public function fetch ( $method, $key ) {
 		$method = strtoupper( $method );
 
@@ -33,6 +54,12 @@ class Request {
 		}
 	}
 
+	/**
+	 * Verify if a data exists in superglobal
+	 * @param 	string 	( superglobal )
+	 * @param 	string 	( key which contain data wanted )
+	 * @return 	boolean
+	 **/
 	public function exists ( $method, $key ) {
 		$method = strtoupper( $method );
 
@@ -47,10 +74,32 @@ class Request {
 		}
 	}
 
+	/**
+	 * Get method sent by the navigator
+	 * @return 	string
+	 **/
 	public function method ( ) {
 		return $_SERVER['REQUEST_METHOD'];
 	}
 
+	/**
+	 * To know if current request is an Ajax Request
+	 * @return 	boolean
+	 **/
+	public function isAjax ( ) {
+		if ( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) ) {
+			$httpRequest = strtolower( $_SERVER['HTTP_X_REQUESTED_WITH'] );
+
+			if ( $httpRequest == 'xmlhttprequest' ) {
+				return true;
+			}
+		}
+	}
+
+	/**
+	 * To get request time begin
+	 * @return 	float
+	 **/
 	public function time ( ) {
 		return $_SERVER['REQUEST_TIME_FLOAT'];
 	}

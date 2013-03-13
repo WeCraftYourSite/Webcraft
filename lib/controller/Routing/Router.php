@@ -3,22 +3,50 @@
  * Router.php
  *
  * This file is part of Webcraft
- * All rights reserved
+ * 
+ * Licensed under The MIT License
+ * For more information read the file LICENSE.txt
  *
- * @author Romain Quilliot <romain.addweb@gmail.com>
+ * @author 		Romain Quilliot <romain.addweb@gmail.com>
+ * @copyright	Copyright (c) WeCraftYourSite (http://wecraftyoursite.com)
+ * @package		Webcraft
+ * @version 	v 1.1
+ * @license 	MIT License
  **/
 
+/**
+ * Router dispatch url to a controller
+ * @author 		Romain Quilliot <romain.addweb@gmail.com>
+ **/
 class Router {
 
+	/**
+	 * GlobalRoutes contain content of routes.json
+	 **/
 	private $globalRoutes;
+	/**
+	 * Priority contain priority routes
+	 **/
 	private $priority;
+	/**
+	 * Secondary contain secondary routes
+	 **/
 	private $secondary;
+	/**
+	 * Response contain instance of Response object
+	 **/
 	private $response;
+	/**
+	 * State contain state of different type of routes
+	 **/
 	private $state = array(
 		"priority" => false,
 		"secondary" => false
 	);
 
+	/**
+	 * Class constructor
+	 **/
 	public function __construct ( ) {
 		$routeFile = file_get_contents( SystemConfig::get( 'lib' ) ."/ressource/routes.json" );
 		$this->globalRoutes = json_decode( $routeFile );
@@ -28,6 +56,10 @@ class Router {
 		$this->response = new Response();
 	}
 
+	/**
+	 * Run the router
+	 * @param 	string 	( level priority or secondary )
+	 **/
 	public function listen ( $level = "priority" ) {
 
 		$error = true;
@@ -72,6 +104,11 @@ class Router {
 		}
 	}
 
+	/**
+	 * Parse routes file
+	 * @param 	string 	( path to routes )
+	 * @return 	array
+	 **/
 	public function parse ( $routeFile ) {
 
 		if ( !file_exists( $routeFile )) {

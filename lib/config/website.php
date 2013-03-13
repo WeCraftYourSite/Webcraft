@@ -3,9 +3,15 @@
  * website.php
  *
  * This file is part of Webcraft
- * All rights reserved
+ * 
+ * Licensed under The MIT License
+ * For more information read the file LICENSE.txt
  *
- * @author Romain Quilliot <romain.addweb@gmail.com>
+ * @author 		Romain Quilliot <romain.addweb@gmail.com>
+ * @copyright	Copyright (c) WeCraftYourSite (http://wecraftyoursite.com)
+ * @package		Webcraft
+ * @version 	v 1.1
+ * @license 	MIT License
  **/
 
 require_once dirname( dirname( __FILE__ ) ) ."/controller/Config/SystemConfig.php";
